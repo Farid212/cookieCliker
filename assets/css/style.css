@@ -1,0 +1,17 @@
+#main-container {
+  background-color: blue;
+  height: 400px !important; }
+
+#cookie-md {
+  top: 20px;
+  right: 772px;
+  position: absolute; }
+
+body {
+  background-color: darkgray; }
+
+#affichage {
+  top: 360px;
+  color: white; }
+
+/*# sourceMappingURL=style.css.map */
