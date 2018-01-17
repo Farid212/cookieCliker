@@ -26,7 +26,7 @@ multiplier.innerHTML = "Power clic :" + prixMultiplicateur + "u";
 // -----------------end affichage initial--------------
 
 function onClick(){
-	if (score>prixMultiplicateur){
+	if (score>=prixMultiplicateur){
 		multiplier.disabled = false;
 	}
 	if(score>499){
@@ -87,5 +87,5 @@ function resetScore(){
 	display.innerHTML = multiplicateur;
 	multiplier.innerHTML = "Power clic :" + prixMultiplicateur + "u";
 	document.getElementById("affichage-multiplicateur").innerHTML = "Power Clic lvl: " + multiplicateur;
-	document.getElementById("multiplier").disabled = true
+	document.getElementById("multiplier").disabled = true;
 }
