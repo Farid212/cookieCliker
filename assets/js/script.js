@@ -7,27 +7,54 @@ var multiplier = document.getElementById("multiplier");
 var autoclickercompteur = 1;
 var tempoClick;
 var tempory00 = 0; //variable temporaire pour le teste on fais pas credit
+var prixMultiplicateur = 50;
 
 
-
+// ------------ affichage initial-------------
 display.innerHTML=score;
+
+if (score<499){ 
+	document.getElementById("autoclicker").disabled = true;
+}
+if (score<prixMultiplicateur){
+	document.getElementById("multiplier").disabled = true;
+}
+document.getElementById("affichage-multiplicateur").innerHTML = "Power Clic lvl: " + multiplicateur;
+multiplier.innerHTML = "Power clic :" + prixMultiplicateur + "u";
+
+
+// -----------------end affichage initial--------------
+
 function onClick(){
+	if (score>prixMultiplicateur){
+		multiplier.disabled = false;
+	}
+	if(score>499){
+		document.getElementById("autoclicker").disabled = false;
+	}
 	score = score+1 * multiplicateur;
 	display.innerHTML = score;
 }
 
 function augmenterMultiplicateur(){
 	tempory00 = score;
-	tempory00 = tempory00 -50;
+	tempory00 = tempory00 - prixMultiplicateur;
 	console.log(tempory00);
 	if (tempory00>0) {
-		multiplicateur = multiplicateur +1;
+		multiplicateur ++;
+		console.log(multiplicateur);
 		score = tempory00;
 		display.innerHTML = score;
-	}else{
-		alert("pas assez de clic!");
+		prixMultiplicateur = Math.round((prixMultiplicateur/2)*Math.PI);
+		console.log(prixMultiplicateur);
+		document.getElementById("affichage-multiplicateur").innerHTML = "Power Clic lvl: " + multiplicateur;
 	}
+	else{
+		alert("pas assez de clic!");
+	}	
+	multiplier.innerHTML = "Power clic :" + prixMultiplicateur + "u";
 }
+
 
 function autoclicker (){
 
@@ -45,7 +72,7 @@ function autoclicker (){
 }
 
 function autoScore (){
-	score = score+1;
+	score = score+10;
 	display.innerHTML = score;
 }
 
@@ -53,6 +80,12 @@ function autoScore (){
 function resetScore(){
 	score = 0;
 	multiplicateur = 1;
+	prixMultiplicateur = 50;
+		autoclickercompteur = 1;
 	clearInterval (tempoClick);
 	display.innerHTML = score;
+	display.innerHTML = multiplicateur;
+	multiplier.innerHTML = "Power clic :" + prixMultiplicateur + "u";
+	document.getElementById("affichage-multiplicateur").innerHTML = "Power Clic lvl: " + multiplicateur;
+	document.getElementById("multiplier").disabled = true
 }
